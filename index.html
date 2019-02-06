@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h1 class="display-12">{{ article.title }} - {{ article.created }}</h1>
+                <p class="lead">{{ article.content }}</p>
+                <a class="btn btn-primary btn-lg" href="{{ article.url }}" role="button">Read more</a>
+            </div>
+        </div>
+        {% endfor %}
+
+        <br>
+        <nav>
+            <ul class="pagination">
+                {% for page in pragination %}
+                {% if page == 1 %}
+                <li class="page-item {% if page == current_page %}active{% endif %}"><a class="page-link" href="index.html">1</a></li>
+                {% else %}
+                <li class="page-item {% if page == current_page %}active{% endif %}"><a class="page-link" href="page_{{ page }}.html">{{ page }}</a></li>
+                {% endif %}
+
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+</html>
