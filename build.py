@@ -49,6 +49,10 @@ def prepare_content():
     files = [os.path.join(path, f) for f in files]
     files.sort(key=lambda x: os.path.getmtime(x), reverse=True)
 
+    output_files = os.listdir(output_path)
+    for i in output_files:
+        os.remove(os.path.join(output_path, i))
+
     for file_name in files:
         if not file_name.endswith('md'):
             continue
