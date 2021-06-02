@@ -3,7 +3,7 @@ chardet==3.0.4
 Deprecated==1.2.4
 idna==2.8
 Jinja2==2.10
-markdown2==2.3.7
+markdown2==2.4.0
 MarkupSafe==1.1.0
 PyGithub==1.43.5
 PyJWT==1.7.1
